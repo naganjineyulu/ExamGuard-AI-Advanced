@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "ExamGuard AI Proctoring",
+  "version": "1.0.0",
+  "description": "Provider-authorized ExamGuard proctoring extension.",
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": ["https://examguard.local/*", "http://localhost/*"],
+  "background": {"service_worker":"background.js"},
+  "action": {"default_popup":"popup.html"},
+  "content_scripts": [{
+    "matches": ["https://examguard.local/*", "http://localhost/*"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }]
+}
